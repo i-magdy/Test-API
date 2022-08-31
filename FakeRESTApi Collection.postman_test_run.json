@@ -1,0 +1,281 @@
+{
+	"id": "ed0d9b44-87f4-400c-a4ff-8d2510b89572",
+	"name": "FakeRESTApi Collection",
+	"timestamp": "2022-08-31T13:47:41.626Z",
+	"collection_id": "13493580-24429be7-2995-4fa3-b5e7-5ed4b0398163",
+	"folder_id": 0,
+	"environment_id": "13493580-7f57d3fe-7ae4-45a2-8cc2-44a7a9b63264",
+	"totalPass": 6,
+	"totalFail": 5,
+	"results": [
+		{
+			"id": "bb64791b-5a7a-432e-a35e-e7ad02e1f323",
+			"name": "Authors",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 5893,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Case 1: Status code is 200": true,
+				"Test Case 2: List not empty": true
+			},
+			"testPassFailCounts": {
+				"Test Case 1: Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test Case 2: List not empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5893
+			],
+			"allTests": [
+				{
+					"Test Case 1: Status code is 200": true,
+					"Test Case 2: List not empty": true
+				}
+			]
+		},
+		{
+			"id": "57da7654-78e2-4a09-a878-5873a038743a",
+			"name": "Author By Id",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/345",
+			"time": 76,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Case 3: Statuts Code is 200": true,
+				"Test Case 4: Author data is Correct": false
+			},
+			"testPassFailCounts": {
+				"Test Case 3: Statuts Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test Case 4: Author data is Correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				76
+			],
+			"allTests": [
+				{
+					"Test Case 3: Statuts Code is 200": true,
+					"Test Case 4: Author data is Correct": false
+				}
+			]
+		},
+		{
+			"id": "737e96d7-7be9-4b13-9c90-a7c5615e0272",
+			"name": "Authors By Book Id",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/120",
+			"time": 944,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test case 5: Check the autors list not empty": true,
+				"Test case 6: All authors should have same book id": true,
+				"Re Test Case 4: check if author id saved is in the list": false
+			},
+			"testPassFailCounts": {
+				"Test case 5: Check the autors list not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test case 6: All authors should have same book id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Re Test Case 4: check if author id saved is in the list": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				944
+			],
+			"allTests": [
+				{
+					"Test case 5: Check the autors list not empty": true,
+					"Test case 6: All authors should have same book id": true,
+					"Re Test Case 4: check if author id saved is in the list": false
+				}
+			]
+		},
+		{
+			"id": "1e1f9dc1-25c6-4ab4-8305-691522398ed5",
+			"name": "GetBook",
+			"url": "http://fakerestapi.azurewebsites.net//api/v1/Books/120",
+			"time": 80,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				80
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d2d3bd59-2818-4774-87ce-34940db1488d",
+			"name": "Edit Book",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Books/120",
+			"time": 75,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test case 7: Response should update PageCount successfully status OK": true
+			},
+			"testPassFailCounts": {
+				"Test case 7: Response should update PageCount successfully status OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				75
+			],
+			"allTests": [
+				{
+					"Test case 7: Response should update PageCount successfully status OK": true
+				}
+			]
+		},
+		{
+			"id": "78b40e60-1e95-4e22-80db-ffca554db307",
+			"name": "Book By id",
+			"url": "http://fakerestapi.azurewebsites.net//api/v1/Books/120",
+			"time": 71,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test case 8: The book data changed correctly": false
+			},
+			"testPassFailCounts": {
+				"Test case 8: The book data changed correctly": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				71
+			],
+			"allTests": [
+				{
+					"Test case 8: The book data changed correctly": false
+				}
+			]
+		},
+		{
+			"id": "9556242c-a641-483c-97dc-8d88f67b802e",
+			"name": "Create User",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Users",
+			"time": 96,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test case 9: Response should be 201 Created": false
+			},
+			"testPassFailCounts": {
+				"Test case 9: Response should be 201 Created": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Test case 9: Response should be 201 Created": false
+				}
+			]
+		},
+		{
+			"id": "d4d36f6d-ae71-4b34-ba9b-14f9ea3d2bc9",
+			"name": "Create User with missing data",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Users",
+			"time": 1536,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test case 10: Request should fail response status is 400": false
+			},
+			"testPassFailCounts": {
+				"Test case 10: Request should fail response status is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				1536
+			],
+			"allTests": [
+				{
+					"Test case 10: Request should fail response status is 400": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 8771,
+	"collection": {
+		"requests": [
+			{
+				"id": "bb64791b-5a7a-432e-a35e-e7ad02e1f323",
+				"method": "GET"
+			},
+			{
+				"id": "57da7654-78e2-4a09-a878-5873a038743a",
+				"method": "GET"
+			},
+			{
+				"id": "737e96d7-7be9-4b13-9c90-a7c5615e0272",
+				"method": "GET"
+			},
+			{
+				"id": "1e1f9dc1-25c6-4ab4-8305-691522398ed5",
+				"method": "GET"
+			},
+			{
+				"id": "d2d3bd59-2818-4774-87ce-34940db1488d",
+				"method": "PUT"
+			},
+			{
+				"id": "78b40e60-1e95-4e22-80db-ffca554db307",
+				"method": "GET"
+			},
+			{
+				"id": "9556242c-a641-483c-97dc-8d88f67b802e",
+				"method": "POST"
+			},
+			{
+				"id": "d4d36f6d-ae71-4b34-ba9b-14f9ea3d2bc9",
+				"method": "POST"
+			}
+		]
+	}
+}
