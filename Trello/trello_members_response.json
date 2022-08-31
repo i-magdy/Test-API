@@ -1,0 +1,99 @@
+{
+    "id": "630f6edfc4bd5500bd6e88ec",
+    "aaId": "630f6edc4fbe9c4bd0edc4a1",
+    "activityBlocked": false,
+    "avatarHash": "473ab5215a201dceeb8ac3102bda36e3",
+    "avatarUrl": "https://trello-members.s3.amazonaws.com/630f6edfc4bd5500bd6e88ec/473ab5215a201dceeb8ac3102bda36e3",
+    "bio": "",
+    "bioData": null,
+    "confirmed": true,
+    "fullName": "Ibrahem Magdy",
+    "idEnterprise": null,
+    "idEnterprisesDeactivated": [],
+    "idMemberReferrer": null,
+    "idPremOrgsAdmin": [],
+    "initials": "IM",
+    "memberType": "normal",
+    "nonPublic": {},
+    "nonPublicAvailable": true,
+    "products": [],
+    "url": "https://trello.com/ibrahemmagdy2",
+    "username": "ibrahemmagdy2",
+    "status": "disconnected",
+    "aaBlockSyncUntil": null,
+    "aaEmail": null,
+    "aaEnrolledDate": null,
+    "avatarSource": "none",
+    "credentialsRemovedCount": 0,
+    "domainClaimed": null,
+    "email": "ibrahim.magdy31@outlook.com",
+    "goldSunsetFreeTrialIdOrganization": null,
+    "gravatarHash": "130eb8d438358fd117f878d72f185fa5",
+    "idBoards": [
+        "630f6f1684a25b00a86a8e12"
+    ],
+    "idOrganizations": [
+        "630f6ef9f1e5c80361c619c2"
+    ],
+    "idEnterprisesAdmin": [],
+    "limits": {
+        "boards": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 4500,
+                "warnAt": 3600
+            }
+        },
+        "orgs": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 850,
+                "warnAt": 680
+            }
+        }
+    },
+    "loginTypes": [
+        "atlassian"
+    ],
+    "marketingOptIn": {
+        "optedIn": true,
+        "date": "2022-08-31T14:23:29.124Z"
+    },
+    "messagesDismissed": [],
+    "oneTimeMessagesDismissed": [
+        "sent-possible-new-signup-event"
+    ],
+    "prefs": {
+        "privacy": {
+            "fullName": "public",
+            "avatar": "public"
+        },
+        "sendSummaries": true,
+        "minutesBetweenSummaries": 60,
+        "minutesBeforeDeadlineToNotify": 1440,
+        "colorBlind": false,
+        "locale": "en-US"
+    },
+    "trophies": [],
+    "uploadedAvatarHash": null,
+    "uploadedAvatarUrl": null,
+    "premiumFeatures": [
+        "additionalBoardBackgrounds",
+        "additionalStickers",
+        "customBoardBackgrounds",
+        "customEmoji",
+        "customStickers",
+        "plugins"
+    ],
+    "isAaMastered": true,
+    "ixUpdate": "12",
+    "boards": [
+        {
+            "id": "630f6f1684a25b00a86a8e12",
+            "name": "Test Trello",
+            "closed": false,
+            "idOrganization": "630f6ef9f1e5c80361c619c2",
+            "pinned": false
+        }
+    ]
+}
