@@ -1,0 +1,282 @@
+{
+	"id": "0e63e16c-aad6-4a98-94f3-753f6d6c3404",
+	"name": "Test Trello Board",
+	"timestamp": "2022-08-31T17:28:56.590Z",
+	"collection_id": "13493580-16d98897-3b3d-4814-af9c-29adaefb5a8b",
+	"folder_id": 0,
+	"environment_id": "13493580-c00fe7d2-ed90-4180-a9c9-088a39da5ac3",
+	"totalPass": 18,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "ea49a678-d167-4ece-ac45-ef79e8e1225c",
+			"name": "Create a Board",
+			"url": "https://api.trello.com/1/boards/?name=New%20board&key=a18a9d226bae658725593c66b624c65a&token=0d59d16dc691d98687c504a926fe093fd71e491b2abcf85a5e3803e57787ad1a",
+			"time": 693,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response should be 200 Ok": true,
+				"Board should have the same name": true,
+				"Pram closed is false": true,
+				"Pram permissionLevel is private": true,
+				"Pram can invite is true": true,
+				"Pram can be public is True": true
+			},
+			"testPassFailCounts": {
+				"Response should be 200 Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Board should have the same name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pram closed is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pram permissionLevel is private": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pram can invite is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pram can be public is True": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				693
+			],
+			"allTests": [
+				{
+					"Response should be 200 Ok": true,
+					"Board should have the same name": true,
+					"Pram closed is false": true,
+					"Pram permissionLevel is private": true,
+					"Pram can invite is true": true,
+					"Pram can be public is True": true
+				}
+			]
+		},
+		{
+			"id": "295612d0-cba6-4849-becf-e9303e90ff27",
+			"name": "Get Boards",
+			"url": "https://api.trello.com/1/members/me?boards=open&key=a18a9d226bae658725593c66b624c65a&token=0d59d16dc691d98687c504a926fe093fd71e491b2abcf85a5e3803e57787ad1a",
+			"time": 377,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response should be 200 Ok": true,
+				"Number of boards should be above 1": true
+			},
+			"testPassFailCounts": {
+				"Response should be 200 Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Number of boards should be above 1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				377
+			],
+			"allTests": [
+				{
+					"Response should be 200 Ok": true,
+					"Number of boards should be above 1": true
+				}
+			]
+		},
+		{
+			"id": "5e9d0f38-4503-4699-924a-f21ffe0cb359",
+			"name": "Delete Board By id",
+			"url": "https://api.trello.com/1/boards/630f9a50d57056047a5b87e9?key=a18a9d226bae658725593c66b624c65a&token=0d59d16dc691d98687c504a926fe093fd71e491b2abcf85a5e3803e57787ad1a",
+			"time": 512,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response should be 200 Ok": true,
+				"Confirm deletation of The board": true
+			},
+			"testPassFailCounts": {
+				"Response should be 200 Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm deletation of The board": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				512
+			],
+			"allTests": [
+				{
+					"Response should be 200 Ok": true,
+					"Confirm deletation of The board": true
+				}
+			]
+		},
+		{
+			"id": "27ebcd3c-dec5-4d76-a2c7-dfdbb02b7e5e",
+			"name": "Create New List",
+			"url": "https://api.trello.com/1/lists?name=New%20List&idBoard=630f6f1684a25b00a86a8e12&key=a18a9d226bae658725593c66b624c65a&token=0d59d16dc691d98687c504a926fe093fd71e491b2abcf85a5e3803e57787ad1a",
+			"time": 308,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response should be 200 Ok": true,
+				"Test to verify keys in response exist": true,
+				"Test Verify closed is false": true,
+				"List Limits should be Empty": true
+			},
+			"testPassFailCounts": {
+				"Response should be 200 Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test to verify keys in response exist": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test Verify closed is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List Limits should be Empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				308
+			],
+			"allTests": [
+				{
+					"Response should be 200 Ok": true,
+					"Test to verify keys in response exist": true,
+					"Test Verify closed is false": true,
+					"List Limits should be Empty": true
+				}
+			]
+		},
+		{
+			"id": "674c3c90-6aaf-42b2-a8e7-74b611a9683b",
+			"name": "Get Board lists",
+			"url": "https://api.trello.com/1/boards/630f6f1684a25b00a86a8e12/lists?key=a18a9d226bae658725593c66b624c65a&token=0d59d16dc691d98687c504a926fe093fd71e491b2abcf85a5e3803e57787ad1a",
+			"time": 399,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Verify Number of lists is 3": false,
+				"Alternative Test to Verify actual Number of lists is 4": true
+			},
+			"testPassFailCounts": {
+				"Test Verify Number of lists is 3": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Alternative Test to Verify actual Number of lists is 4": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				399
+			],
+			"allTests": [
+				{
+					"Test Verify Number of lists is 3": false,
+					"Alternative Test to Verify actual Number of lists is 4": true
+				}
+			]
+		},
+		{
+			"id": "c6dbc6b3-9f93-406d-bdb1-2dd49f7ca2d3",
+			"name": "Archive or unarchive a list",
+			"url": "https://api.trello.com/1/lists/630f9a551c4b6402189457ab/closed?value=true&key=a18a9d226bae658725593c66b624c65a&token=0d59d16dc691d98687c504a926fe093fd71e491b2abcf85a5e3803e57787ad1a",
+			"time": 408,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response should be 200 Ok": true,
+				"Verify that closed is updated": true,
+				"Response headers has key Set-Cookie have value": true
+			},
+			"testPassFailCounts": {
+				"Response should be 200 Ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that closed is updated": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response headers has key Set-Cookie have value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				408
+			],
+			"allTests": [
+				{
+					"Response should be 200 Ok": true,
+					"Verify that closed is updated": true,
+					"Response headers has key Set-Cookie have value": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2697,
+	"collection": {
+		"requests": [
+			{
+				"id": "ea49a678-d167-4ece-ac45-ef79e8e1225c",
+				"method": "POST"
+			},
+			{
+				"id": "295612d0-cba6-4849-becf-e9303e90ff27",
+				"method": "GET"
+			},
+			{
+				"id": "5e9d0f38-4503-4699-924a-f21ffe0cb359",
+				"method": "DELETE"
+			},
+			{
+				"id": "27ebcd3c-dec5-4d76-a2c7-dfdbb02b7e5e",
+				"method": "POST"
+			},
+			{
+				"id": "674c3c90-6aaf-42b2-a8e7-74b611a9683b",
+				"method": "GET"
+			},
+			{
+				"id": "c6dbc6b3-9f93-406d-bdb1-2dd49f7ca2d3",
+				"method": "PUT"
+			}
+		]
+	}
+}

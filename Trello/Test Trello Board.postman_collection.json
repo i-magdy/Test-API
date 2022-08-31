@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "16d98897-3b3d-4814-af9c-29adaefb5a8b",
+		"name": "Test Trello Board",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13493580"
+	},
+	"item": [
+		{
+			"name": "Create a Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**",
+							" * test request code is 200 OK",
+							" * name of the board is the same",
+							" * closed is false",
+							" * permissionLevel = private",
+							" * canBePublic is true",
+							" * canInvite is true",
+							" */",
+							"",
+							"pm.test(\"Response should be 200 Ok\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Board should have the same name\",function(){",
+							"    pm.expect(pm.response.json().name).have.to.equal(pm.globals.get(\"board_name_to_create\"));",
+							"});",
+							"",
+							"pm.test(\"Pram closed is false\",function(){",
+							"    pm.expect(pm.response.json().closed).be.equal(false);",
+							"});",
+							"",
+							"pm.test(\"Pram permissionLevel is private\",function(){",
+							"    pm.expect(pm.response.json().prefs.permissionLevel).have.to.equal(\"private\");",
+							"});",
+							"",
+							"pm.test(\"Pram can invite is true\",function(){",
+							"    pm.expect(pm.response.json().prefs.canInvite).have.to.equal(true);",
+							"});",
+							"",
+							"pm.test(\"Pram can be public is True\",function(){",
+							"    pm.expect(pm.response.json().prefs.canBePublic).have.to.equal(true);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/boards/?name={{board_name_to_create}}&key={{api_key}}&token={{access_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{board_name_to_create}}"
+						},
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Boards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**",
+							" * Response status should be 200",
+							" * Set boards id values",
+							" */",
+							"",
+							"pm.test(\"Response should be 200 Ok\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var boards = pm.response.json().boards;",
+							"",
+							"pm.test(\"Number of boards should be above 1\",function(){",
+							"    pm.expect(boards.length).have.to.above(1);",
+							"});",
+							"",
+							"//set varibals",
+							"pm.globals.set(\"first_board_id\",boards[0].id);",
+							"pm.globals.set(\"last_board_id\",boards[boards.length-1].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/members/me?boards=open&key={{api_key}}&token={{access_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"members",
+						"me"
+					],
+					"query": [
+						{
+							"key": "boards",
+							"value": "open"
+						},
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board By id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**",
+							" * Test the response should be 200",
+							" * Response body should have message to confirm delete",
+							" */",
+							"",
+							"pm.test(\"Response should be 200 Ok\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Confirm deletation of The board\",function(){",
+							"    pm.expect(pm.response.json()._value).have.to.be.null;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/boards/{{first_board_id}}?key={{api_key}}&token={{access_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{first_board_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**",
+							" * verify keys exist",
+							" * verify closed is false",
+							" * limits are empty",
+							" */",
+							"",
+							"pm.test(\"Response should be 200 Ok\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Test to verify keys in response exist\",function(){",
+							"    pm.expect(pm.response.json()).to.have.contain.keys('id','name','idBoard');",
+							"});",
+							"",
+							"pm.test(\"Test Verify closed is false\",function(){",
+							"    pm.expect(pm.response.json().closed).have.to.be.false",
+							"});",
+							"",
+							"pm.test(\"List Limits should be Empty\",function(){",
+							"    pm.expect(pm.response.json().limits).to.be.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/lists?name={{list_name}}&idBoard={{last_board_id}}&key={{api_key}}&token={{access_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{list_name}}"
+						},
+						{
+							"key": "idBoard",
+							"value": "{{last_board_id}}"
+						},
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Board lists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**",
+							" * 1-Verify The number of the lists is 3. PS. we just created new list in the same board so The actual number is 4",
+							" * So this test case will FAIL.",
+							" * 2-set varibals",
+							" */",
+							"",
+							"pm.test(\"Test Verify Number of lists is 3\",function(){",
+							"    pm.expect(pm.response.json().length).have.to.be.equal(3);",
+							"});",
+							"",
+							"pm.test(\"Alternative Test to Verify actual Number of lists is 4\",function(){",
+							"    pm.expect(pm.response.json().length).have.to.be.equal(4);",
+							"});",
+							"",
+							"pm.globals.set(\"first_list_id\",pm.response.json()[0].id);",
+							"pm.globals.set(\"last_list_id\",pm.response.json()[pm.response.json().length-1].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/boards/{{last_board_id}}/lists?key={{api_key}}&token={{access_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{last_board_id}}",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive or unarchive a list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response should be 200 Ok\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify that closed is updated\",function(){",
+							"    pm.expect(pm.response.json().closed.toString()).have.to.equal(pm.request.url.query.get(\"value\"));",
+							"});",
+							"",
+							"pm.test(\"Response headers has key Set-Cookie have value\",function(){",
+							"    pm.expect(pm.response.headers.get('Set-Cookie')).have.to.include(pm.globals.get(\"set_cookie_value_to_check\"));",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/lists/{{first_list_id}}/closed?value={{archive}}&key={{api_key}}&token={{access_token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"lists",
+						"{{first_list_id}}",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "{{archive}}"
+						},
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

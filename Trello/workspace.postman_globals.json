@@ -1,0 +1,75 @@
+{
+	"id": "3437afb6-2d88-4127-8ab3-7cbce5e051a5",
+	"values": [
+		{
+			"key": "api_key",
+			"value": "PLEASE_PUT_YOUR_API_KEY_HERE",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "PLEAE_PUT_YOUR_ACCESS_TOKEN_HERE",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "board_name_to_create",
+			"value": "New board",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "first_board_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "last_board_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "list_name",
+			"value": "New List",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "first_list_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "last_list_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "archive",
+			"value": "true",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "un_archive",
+			"value": "false",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "set_cookie_value_to_check",
+			"value": "isEnterpriseAdmin%3Dfalse",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-08-31T17:31:37.581Z",
+	"_postman_exported_using": "Postman/9.30.0"
+}
