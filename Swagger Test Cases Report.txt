@@ -1,0 +1,32 @@
+Test Case 1:
+  API: GET /api/v1/Authors
+  Test Case: Response should be 200 OK
+  Expected Result: 200 OK
+  Actual Result:
+  Status:
+
+Test Case 2:
+  API: GET /api/v1/Authors
+  Test Case: Authors list should not be empty
+  Expected Result: Response body have list.
+  Actual Result:
+  Status:
+
+Test Case 3:
+  API: GET /api/v1/Authors/{author_id}
+  Test Case: Response should be 200 OK
+  Expected Result: 200 OK
+  Actual Result:
+  Status:
+
+Test Case 4:
+  API: GET /api/v1/Authors/{author_id}
+  Test Case: Response should have same author id as in API request and book id
+  the same as book id saved from the authors list.
+  Expected Result: The same Author data.
+  Actual Result:
+  Status:
+
+Test Case 5:
+  API: GET /api/v1/Authors/authors/books/{book_id}
+  Test Case:
