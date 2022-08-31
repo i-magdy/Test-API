@@ -29,4 +29,37 @@ Test Case 4:
 
 Test Case 5:
   API: GET /api/v1/Authors/authors/books/{book_id}
-  Test Case:
+  Test Case: Response not empty.
+  Expected Result: All Authors have same book id.
+  Actual Result:
+  Status:
+
+Test Case 6:
+  API: PUT /api/v1/Books/{book_id}
+  Test Case: Response should update PageCount successfully.
+  Expected Result: 200 OK.
+  Actual Result:
+  Status:
+
+Test Case 7:
+  API: GET /api/v1/Books/{book_id}
+  Test Case: The book data changed correctly
+  Expected Result: PageCount is The same PageCount changed
+  Actual Result:
+  Status:
+
+Test Case 8:
+    API: POST /api/v1/Users
+    Test case: Create new User with correct userName,userPassword Response
+    should be 201 Created.
+    Expected Result: 201 Created.
+    Actual Result:
+    Status:
+
+Test Case 9:
+  API: POST /api/v1/Users
+  Test Case: Create new User with missing userName or userPassword Response
+  Should fail, 400 Bad Request
+  Expected Result: 400 bad Request
+  Actual Result:
+  Status:
