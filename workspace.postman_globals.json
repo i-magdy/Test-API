@@ -1,0 +1,45 @@
+{
+	"id": "3b6f22d9-3986-44e0-8a3a-d12c0bf222c2",
+	"values": [
+		{
+			"key": "book_id",
+			"value": "1",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "author_id",
+			"value": "1",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_id",
+			"value": "0",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_name",
+			"value": "Ibrahim",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "user_password",
+			"value": "11235813",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "book_page_count",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-08-31T13:51:52.552Z",
+	"_postman_exported_using": "Postman/9.30.0"
+}

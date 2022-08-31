@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "24429be7-2995-4fa3-b5e7-5ed4b0398163",
+		"name": "FakeRESTApi Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13493580"
+	},
+	"item": [
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Authors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/** ",
+									" * 1-Run test cas 1",
+									" * 2- Run test case 2",
+									" * 3-set varibale author_id , book_id",
+									"*/",
+									"pm.test(\"Test Case 1: Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"});",
+									"var arrayLenght = pm.response.json().length;",
+									"",
+									"pm.test(\"Test Case 2: List not empty\",function(){",
+									"    pm.expect(arrayLenght).have.to.above(0);",
+									"});",
+									"",
+									"var randomPosition = Math.floor(Math.random()*arrayLenght);",
+									"console.log(randomPosition);",
+									"var autorObject = pm.response.json()[randomPosition];",
+									"console.log(\"book id:  \"+ autorObject.id +\"  \"+ autorObject.idBook);",
+									"",
+									"//set varibales",
+									"pm.globals.set(\"book_id\",autorObject.idBook);",
+									"pm.globals.set(\"author_id\",autorObject.id);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/Authors",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * 1- Run Test Case 3",
+									" * 2- Run Test Case 4",
+									" */",
+									"",
+									"pm.test(\"Test Case 3: Statuts Code is 200\",function(){",
+									"      pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Test Case 4: Author data is Correct\",function(){",
+									"    pm.expect(pm.response.json().id).have.to.equal(pm.globals.get(\"author_id\"));",
+									"    pm.expect(pm.response.json().idBook).have.to.equal(pm.globals.get(\"book_id\"));",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/Authors/{{author_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors",
+								"{{author_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authors By Book Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * 1-Run test case 5",
+									" * 2-Run test case 6",
+									" * 3-Retest test case number 4 , more check if the author id is found in the list",
+									" */",
+									"",
+									"pm.test(\"Test case 5: Check the autors list not empty\",function(){",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(pm.response.json().length).have.to.above(0);",
+									"});",
+									"var json = pm.response.json();",
+									"var isAuthorFound = false;",
+									"",
+									"pm.test(\"Test case 6: All authors should have same book id\",function(){",
+									"    for(let i =0; i < json.length;i++){",
+									"        pm.expect(json[i].idBook).have.to.equal(pm.globals.get(\"book_id\"));",
+									"    }",
+									"});",
+									"",
+									"pm.test(\"Re Test Case 4: check if author id saved is in the list\",function(){",
+									"     for(let i =0; i < json.length;i++){",
+									"        isAuthorFound = json[i].id == pm.globals.get(\"author_id\");",
+									"        if(isAuthorFound){",
+									"            break;",
+									"        }",
+									"    }",
+									"    pm.expect(isAuthorFound).have.to.equal(true);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/Authors/authors/books/{{book_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors",
+								"authors",
+								"books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "GetBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * set book page count in varible to modify it later",
+									" */",
+									"",
+									"pm.globals.set(\"book_page_count\",parseInt(pm.response.json().pageCount/2));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}//api/v1/Books/{{book_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"",
+								"api",
+								"v1",
+								"Books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * 1-Run test case 7",
+									" */",
+									"",
+									"pm.test(\"Test case 7: Response should update PageCount successfully status OK\",function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{book_id}}\",\n  \"pageCount\": {{book_page_count}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/Books/{{book_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book By id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * Run test case 8",
+									" */",
+									"",
+									"pm.test(\"Test case 8: The book data changed correctly\",function(){",
+									"    pm.expect(pm.response.json().pageCount).have.to.equal(pm.globals.get(\"book_page_count\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}//api/v1/Books/{{book_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"",
+								"api",
+								"v1",
+								"Books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * Run test case 9.",
+									" */",
+									"",
+									"pm.test(\"Test case 9: Response should be 201 Created\",function(){",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\": \"{{user_name}}\",\n    \"password\":\"{{user_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User with missing data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/**",
+									" * Run test case 10",
+									" */",
+									"",
+									"pm.test(\"Test case 10: Request should fail response status is 400\",function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"{{user_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
