@@ -2,64 +2,71 @@ Test Case 1:
   API: GET /api/v1/Authors
   Test Case: Response should be 200 OK
   Expected Result: 200 OK
-  Actual Result:
-  Status:
+  Actual Result: 200 OK
+  Status: PASS
 
 Test Case 2:
   API: GET /api/v1/Authors
   Test Case: Authors list should not be empty
   Expected Result: Response body have list.
-  Actual Result:
-  Status:
+  Actual Result: Not Empty
+  Status: PASS
 
 Test Case 3:
   API: GET /api/v1/Authors/{author_id}
   Test Case: Response should be 200 OK
   Expected Result: 200 OK
-  Actual Result:
-  Status:
+  Actual Result:200 ok
+  Status: PASS
 
 Test Case 4:
   API: GET /api/v1/Authors/{author_id}
   Test Case: Response should have same author id as in API request and book id
   the same as book id saved from the authors list.
   Expected Result: The same Author data.
-  Actual Result:
-  Status:
+  Actual Result: book id always change not the same.
+  Status: FAIL
 
 Test Case 5:
   API: GET /api/v1/Authors/authors/books/{book_id}
   Test Case: Response not empty.
-  Expected Result: All Authors have same book id.
-  Actual Result:
-  Status:
+  Expected Result: Authors list not Empty.
+  Actual Result: List Not empty.
+  Status: PASS
 
-Test Case 6:
+  Test Case 6:
+    API: GET /api/v1/Authors/authors/books/{book_id}
+    Test Case: Response not empty.
+    Expected Result: All Authors have same book id.
+    Actual Result: All authors have same book id.
+    Status: PASS
+
+Test Case 7:
   API: PUT /api/v1/Books/{book_id}
   Test Case: Response should update PageCount successfully.
   Expected Result: 200 OK.
-  Actual Result:
-  Status:
-
-Test Case 7:
-  API: GET /api/v1/Books/{book_id}
-  Test Case: The book data changed correctly
-  Expected Result: PageCount is The same PageCount changed
-  Actual Result:
-  Status:
+  Actual Result: 200 OK
+  Status: PASS
 
 Test Case 8:
+  API: GET /api/v1/Books/{book_id}
+  Test Case: The book data changed correctly.
+  Expected Result: PageCount is The same PageCount changed.
+  Actual Result: PageCount did not change.
+  Status: FAIL
+
+Test Case 9:
     API: POST /api/v1/Users
     Test case: Create new User with correct userName,userPassword Response
     should be 201 Created.
     Expected Result: 201 Created.
-    Actual Result:
-    Status:
+    Actual Result: 200 OK
+    Status: FAIL
 
-Test Case 9:
+Test Case 10:
   API: POST /api/v1/Users
   Test Case: Create new User with missing userName or userPassword Response
   Should fail, 400 Bad Request
   Expected Result: 400 bad Request
-  Actual Result:
-  Status:
+  Actual Result: 200 OK
+  Status: FAIL
